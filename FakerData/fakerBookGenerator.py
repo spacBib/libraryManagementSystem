@@ -17,8 +17,3 @@ class FakerBookGenerator(FakerAbsGenerator):
             self._item_creator.get_fake_publishing_year(1990,2024),
             self._item_creator.get_fake_ISBN13()
         ]
-    
-a = FakerBookGenerator()
-print(a.get_data_headers())
-for i in range(20):
-    print(a.generate_item_data())

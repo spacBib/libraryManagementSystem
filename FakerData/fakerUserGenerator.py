@@ -15,9 +15,3 @@ class FakerUserGenerator(FakerAbsGenerator):
             self._item_creator.get_fake_birthday(),
             self._item_creator.get_fake_address()
         ]
-    
-
-a = FakerUserGenerator()
-print(a.get_data_headers())
-for i in range(20):
-    print(a.generate_item_data())
