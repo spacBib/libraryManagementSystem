@@ -47,6 +47,7 @@ class Book(object):
     def isbn(self, value):
         self._isbn = value
 
+    # nr of copies of this title in the library
     @property
     def copies(self):
         return self._copies
