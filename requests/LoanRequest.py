@@ -21,3 +21,4 @@ class LoanRequest(RequestABC):
     def user(self):
         return self._user
         
+ 

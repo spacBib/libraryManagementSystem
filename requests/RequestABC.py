@@ -20,6 +20,6 @@ class RequestABC(abc.ABC):
     def user(self):
         pass
         
-    
+     
     
     
