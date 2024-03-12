@@ -4,9 +4,9 @@ class FakerBookGenerator(FakerAbsGenerator):
     
     def get_data_headers(self) -> list[str]:
         return [
-            "Title",
-            "Author",
-            "Publishing Year",
+            "title",
+            "author",
+            "publishingYear",
             "ISBN" 
         ]
 
