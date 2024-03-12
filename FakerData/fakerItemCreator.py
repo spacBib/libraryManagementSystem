@@ -9,16 +9,16 @@ class FakerItemCreator():
         Faker.seed(seed)
 
     def get_fake_ISBN13(self) -> str:
-          return self._faker.isbn13()
+          return "\"" + self._faker.isbn13() + "\""
     
     def get_fake_name(self) -> str:
-        return self._faker.name()
+        return "\"" + self._faker.name() + "\""
           
     def get_fake_address(self) -> str:
-        return self._faker.address()
+        return "\"" + self._faker.street_address() + "\""
     
     def get_fake_book_title(self) -> str:
-         return self._faker.bs()
+         return "\"" + self._faker.bs() + "\""
     
     def get_fake_publishing_year(self, min : int, max : int) -> int:
         return self._faker.pyint(min_value = min, max_value = max)
@@ -29,9 +29,10 @@ class FakerItemCreator():
         return _date_string
     
     def get_fake_email(self, fullName : str, birthyear : int):
+        _fullName = fullName.replace("\"","")
         _domain = self._faker.free_email_domain()
-        _id = self._get_fake_email_id(fullName, birthyear)
-        return _id + "@" + _domain
+        _id = self._get_fake_email_id(_fullName, birthyear)
+        return "\"" + _id + "@" + _domain + "\""
 
 
     def _nameStyle_a(self, fullName : str, filler : str):
@@ -51,7 +52,10 @@ class FakerItemCreator():
 
         return filler.join([_first_name[0],_rest_name[0:3]])
     
-    def _get_fake_email_id(self, fullName : str, birthyear : int) -> str:
+
+
+
+    def _get_fake_email_id(self, fullName : str, birthyear : int) -> str:       
         _fillers = [".","-","_",""]
         _fillerIndex = self._faker.pyint(min_value = 0, max_value = len(_fillers)-1)
         _filler = _fillers[_fillerIndex]

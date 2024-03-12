@@ -1,4 +1,4 @@
-from fakerItemCreator import FakerItemCreator
+from fakerData.fakerItemCreator import FakerItemCreator
 import abc
 
 class FakerAbsGenerator(abc.ABC):

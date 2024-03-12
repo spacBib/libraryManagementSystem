@@ -1,4 +1,4 @@
-from fakerAbsGenerator import FakerAbsGenerator
+from fakerData.fakerAbsGenerator import FakerAbsGenerator
 
 class FakerBookGenerator(FakerAbsGenerator):
     
@@ -14,6 +14,6 @@ class FakerBookGenerator(FakerAbsGenerator):
         return [
             self.item_creator.get_fake_book_title(),
             self._item_creator.get_fake_name(),
-            self._item_creator.get_fake_publishing_year(1990,2024),
+            str(self._item_creator.get_fake_publishing_year(1990,2024)),
             self._item_creator.get_fake_ISBN13()
         ]

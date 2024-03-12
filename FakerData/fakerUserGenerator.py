@@ -1,4 +1,4 @@
-from fakerAbsGenerator import FakerAbsGenerator
+from fakerData.fakerAbsGenerator import FakerAbsGenerator
 
 class FakerUserGenerator(FakerAbsGenerator):
     
