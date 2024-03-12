@@ -1,5 +1,5 @@
 import abc
-from design_patterns.observer_pattern.abs_observer import AbsObserver
+from designPatterns.observerPattern.abs_observer import AbsObserver
 
 class AbsObserverSubject(abc.ABC):
     _observers : dict[AbsObserver] = {}
