@@ -1,43 +1,36 @@
-from libraryDatabase.database_connector import ConnectToDatabase
 from typing import List, Tuple
 import mysql.connector
 
 
 class CreateLibraryTables:
-    def create_table(self, database_name: str, table_name: str, column_names: List[str], column_types: List[str],
-                     library_data: List[Tuple], server_connector: ConnectToDatabase) -> None:
+    def create_table(self, table_name: str, column_names: List[str], column_types: List[str],
+                     library_data: List[Tuple], database_connector: mysql.connector.MySQLConnection) -> None:
         try:
-            # Connect to the server
-            my_database = server_connector.connect_to_database(database_name)
-            my_database.database = database_name
+            # Connect to the database
+            with database_connector.cursor() as cursor:
+                # Link data names with data types
+                column_definitions = [f"{col_name} {col_type}" for col_name, col_type in
+                                      zip(column_names, column_types)]
+                create_table_query = f"CREATE TABLE IF NOT EXISTS {table_name} ({', '.join(column_definitions)})"
+                cursor.execute(create_table_query)
 
-            # Create a cursor object
-            cursor = my_database.cursor()
+                # Remove ID entry and insert data into the table
+                column_names = column_names[1:]
+                insert_query = f"INSERT INTO {table_name} ({', '.join(column_names)}) VALUES ({', '.join(['%s'] * len(column_names))})"
+                cursor.executemany(insert_query, library_data)
 
-            # Create the database if it doesn't exist
-            cursor.execute(f"CREATE DATABASE IF NOT EXISTS {database_name}")
+            # Commit changes
+            database_connector.commit()
 
-            # Switch to the specified database
-            cursor.execute(f"USE {database_name}")
-
-            # Create the product table
-            column_definitions = []
-            for col_name, col_type in zip(column_names, column_types):
-                column_definitions.append(f"{col_name} {col_type}")
-            create_table_query = f"CREATE TABLE IF NOT EXISTS {table_name} ({', '.join(column_definitions)})"
-            cursor.execute(create_table_query)
-
-            # Commit changes and close cursor and connection
-            my_database.commit()
-
-            # Insert product data into the table
-            insert_query = f"INSERT INTO {table_name} ({', '.join(column_names)}) VALUES ({', '.join(['%s'] * len(column_names))})"
-            cursor.executemany(insert_query, library_data)
-
-            my_database.commit()
-            cursor.close()
-            my_database.close()
-
-            print(f"Storage database '{database_name}' created successfully.")
+            print(f"Table '{table_name}' created successfully.")
         except mysql.connector.Error as e:
-            print(f"Error creating storage database: {e}")
+            print(f"Error creating table: {e}")
+            raise
+
+
+
+
+
+
+
+
