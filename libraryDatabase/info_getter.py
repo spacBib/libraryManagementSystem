@@ -10,7 +10,6 @@ class InfoGetter(object):
     # Takes a title and returns information from the database
     def search_title(self, title: str) -> dict:
         query = QueryBuilder().query_title(title)
-        print(query)
         cursor = self._mysql_connection.cursor(dictionary=True)
         cursor.execute(query)
         return cursor.fetchall()

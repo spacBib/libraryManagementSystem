@@ -1,11 +1,11 @@
 from datetime import datetime
 from request_ABC import RequestABC
-from libraryBooks.library_book import Book
+from libraryBooks.library_book import LibraryBook
 from libraryUsers.library_user import LibraryUser
 
 
 class ReturnRequest(RequestABC):
-    def __init__(self, book: Book, user: LibraryUser, accepted: bool):
+    def __init__(self, book: LibraryBook, user: LibraryUser, accepted: bool):
         self._book = book
         self._user = user
         self._accepted = accepted
