@@ -4,10 +4,9 @@ class FakerUserGenerator(FakerAbsGenerator):
     
     def get_data_headers(self) -> list[str]:
         return [
-            "Name",
-            "Birthday",
-            "Addresse",
-            "E-mail",
+            "name",
+            "addresse",
+            "email",
         ]
 
     def generate_item_data(self):
@@ -17,7 +16,6 @@ class FakerUserGenerator(FakerAbsGenerator):
 
         return [
             _fake_name,
-            _fake_birthday,
             self._item_creator.get_fake_address(),
             self._item_creator.get_fake_email(_fake_name, _birthyear)
         ]

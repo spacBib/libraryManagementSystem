@@ -16,4 +16,4 @@ class WriteFakerCSV():
                 rowItems = generator.generate_item_data()
                 text = delimiter.join(rowItems) + "\n"
                 file.write(text)
-           
+
