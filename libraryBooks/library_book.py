@@ -3,17 +3,27 @@
 class Book(object):
     
     def __init__(self, 
+                 id : int,
                  author: str,
                  title: str,
                  year: int,
                  isbn: str,
                  copies: int 
                  ):
+        self._id = id
         self._author = author
         self._title = title
         self._year = year
         self._isbn = isbn
         self._copies = copies 
+
+    @property
+    def id(self):
+        return self._id
+
+    @id.setter
+    def id(self, value):
+        self._id = value
 
     @property
     def author(self):
