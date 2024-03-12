@@ -5,16 +5,27 @@ class QueryBuilder(object):
     # BOOKTITLES: table of titles with author, year etc. info
     
     
-    # Get all books 
+    # Get all books that contains title
     @staticmethod
     def query_title(title: str) -> str:
-        base = "SELECT {} FROM {} JOIN {} {}"
-        columns = "TITLE, AUTHOR, YEAR, STATUS"
-        table1 = "BOOKCOPIES"
-        table2 = "BOOKTITLES"
-        on = "ON BOOKTITLES.TITLE LIKE %" + title + "%"
-        query = base.format(columns, table1, table2, on)
+        base = "SELECT {} FROM {} {}"
+        columns = "ID, TITLE, AUTHOR, PUBLISHINGYEAR, ISBN, AVAILABILITY"
+        table1 = "BOOKS"
+        on = "WHERE BOOKS.TITLE LIKE %" + title + "%"
+        #query = base.format(columns, table1, on)
+        query = "SELECT ID, TITLE, AUTHOR, PUBLISHINGYEAR, ISBN, AVAILABILITY FROM BOOKS WHERE BOOKS.TITLE LIKE " + f"\"%{title}%\""
+        print("\n" + query + "\n")
         return query
+    
+    # @staticmethod
+    # def query_title(title: str) -> str:
+    #     base = "SELECT {} FROM {} JOIN {} {}"
+    #     columns = "TITLE, AUTHOR, YEAR, STATUS"
+    #     table1 = "BOOKCOPIES"
+    #     table2 = "BOOKTITLES"
+    #     on = "ON BOOKTITLES.TITLE LIKE %" + title + "%"
+    #     query = base.format(columns, table1, table2, on)
+    #     return query
     
     # Get all books by an author
     @staticmethod
