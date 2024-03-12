@@ -1,5 +1,5 @@
 from mysql.connector import MySQLConnection
-from query_builder import QueryBuilder
+from libraryDatabase.query_builder import QueryBuilder
 
 class InfoGetter(object):
     
@@ -10,15 +10,16 @@ class InfoGetter(object):
     # Takes a title and returns information from the database
     def search_title(self, title: str) -> dict:
         query = QueryBuilder().query_title(title)
+        print(query)
         cursor = self._mysql_connection.cursor(dictionary=True)
         cursor.execute(query)
-        return cursor.fetchall
+        return cursor.fetchall()
     
     # Takes an author and returns information from the database
     def search_author(self, author: str) -> dict:
         query = QueryBuilder().query_title(author)
         cursor = self._mysql_connection.cursor(dictionary=True)
         cursor.execute(query)
-        return cursor.fetchall
+        return cursor.fetchall()
     
     
