@@ -7,7 +7,7 @@ if __name__ == "__main__":
     database_connection = mysql_server.connect_to_database("library_management_system")
     sql_database_table_creator = CreateLibraryTables()
 
-    column_names_books = ["id", "author", "title", "publishingYear", "ISBN", "availability"]
+    column_names_books = ["id", "title", "author", "publishingYear", "ISBN", "availability"]
     column_types_books = ["INT AUTO_INCREMENT PRIMARY KEY", "VARCHAR(255)", "VARCHAR(255)", "INT",
                           "VARCHAR(255)", "VARCHAR(255)"]
     library_book_data = []
