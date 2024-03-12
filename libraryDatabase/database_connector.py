@@ -10,7 +10,7 @@ class ConnectToDatabase(Singleton):
         self.password = password
         self.port = port
 
-    def _connect_to_server(self) -> mysql.connector:
+    def connect_to_server(self) -> mysql.connector:
         try:
             # Connect to the server
             my_database = mysql.connector.connect(
@@ -27,19 +27,15 @@ class ConnectToDatabase(Singleton):
     def connect_to_database(self, database_name: str) -> mysql.connector.connection.MySQLConnection:
         try:
             # Connect to the specified server
-            my_database = self._connect_to_server()
-
-            # Specify the database name
-            my_database.database = database_name
+            my_database = self.connect_to_server()
 
             # Check if the database exists
             cursor = my_database.cursor()
-            cursor.execute(f"SHOW DATABASES LIKE '{database_name}'")
-            existing_databases = cursor.fetchall()
-            cursor.close()
+            cursor.execute(f"CREATE DATABASE IF NOT EXISTS {database_name}")
 
-            if not existing_databases:
-                raise Exception(f"Database '{database_name}' does not exist")
+            # Switch to the specified database
+            cursor.execute(f"USE {database_name}")
+            cursor.close()  # Close the cursor after switching the database
 
             return my_database
         except Exception as e:

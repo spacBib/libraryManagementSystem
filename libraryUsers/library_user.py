@@ -1,10 +1,5 @@
 class LibraryUser:
-    def __init__(self, 
-                 id : int, 
-                 name : str, 
-                 address : str, 
-                 email : str
-                 ):
+    def __init__(self, id: int, name: str, address: str, email: str):
         self._id = id
         self._name = name
         self._address = address
