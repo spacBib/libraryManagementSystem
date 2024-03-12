@@ -1,6 +1,6 @@
-from requestABC import RequestABC
-from libraryBooks.book import Book
-from libraryUsers.a_libaray_user import LibraryUser
+from request_ABC import RequestABC
+from libraryBooks.library_book import Book
+from libraryUsers.library_user import LibraryUser
 
 class LoanRequest(RequestABC):
     
