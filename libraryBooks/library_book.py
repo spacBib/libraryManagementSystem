@@ -1,6 +1,6 @@
 
 
-class Book(object):
+class LibraryBook(object):
     
     def __init__(self, 
                  id : int,
@@ -8,14 +8,19 @@ class Book(object):
                  title: str,
                  year: int,
                  isbn: str,
-                 copies: int 
+                 available: bool
+                 #copies: int 
                  ):
         self._id = id
         self._author = author
         self._title = title
         self._year = year
         self._isbn = isbn
-        self._copies = copies 
+        self._available = available
+
+
+
+        #self._copies = copies 
 
     @property
     def id(self):
@@ -57,24 +62,32 @@ class Book(object):
     def isbn(self, value):
         self._isbn = value
 
-    # nr of copies of this title in the library
     @property
-    def copies(self):
-        return self._copies
+    def available(self):
+        return self._available
 
-    @copies.setter
-    def copies(self, value):
-        self._copies = value
+    @available.setter
+    def available(self, value):
+        self._available = value
+
+    # nr of copies of this title in the library
+    # @property
+    # def copies(self):
+    #     return self._copies
+
+    # @copies.setter
+    # def copies(self, value):
+    #     self._copies = value
     
-    # unique id for each copy of a book
-    _id: str
-    _author: str
-    _title: str
-    _year: int
-    # id for the title, not the individual copy of a book
-    _isbn: str
-    # copies of this book title in the library
-    _copies: int    
+    # # unique id for each copy of a book
+    # _id: str
+    # _author: str
+    # _title: str
+    # _year: int
+    # # id for the title, not the individual copy of a book
+    # _isbn: str
+    # # copies of this book title in the library
+    # _copies: int    
     
     
     def print(self):
