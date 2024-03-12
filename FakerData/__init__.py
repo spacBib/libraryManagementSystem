@@ -1,2 +1,2 @@
-from fakerBookGenerator import FakerBookGenerator
-from fakerUserGenerator import FakerUserGenerator
+from .fakerBookGenerator import FakerBookGenerator
+from .fakerUserGenerator import FakerUserGenerator
