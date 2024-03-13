@@ -1,26 +1,26 @@
 from .abs_user_action import AbsUserAction
 
-from libraryBooks.library_book import LibraryBook
-
 from userInterface.user_choice_selector import UserChoiceSelector
 
-class UserActionLoan(AbsUserAction):
+class UserActionReturn(AbsUserAction):
     
     @property
     def name(self) -> str:
-        return "Loan"
+        return "Return"
     
     @property
     def priority(self) -> int:
-        return 0
+        return 2
     
     def is_usable(self, userInteraction) -> bool:
-        return userInteraction.previous_search_result
+        return userInteraction.user.books
 
     def select_action(self, userInteraction) -> None:
-        print("Which book do you want to loan?")       
+        print("Which book do you want to return?")       
 
-        _book_list : list[LibraryBook] = userInteraction.previous_search_result
+        _user = userInteraction.user
+
+        _book_list = _user.books
         _name_list = ["None"]
         for _book in _book_list:
             _name_list.append(_book.to_string())
@@ -32,9 +32,7 @@ class UserActionLoan(AbsUserAction):
             return
 
         _selected_book = _book_list[_choice_index]
-
-        userInteraction.user.add_book(_selected_book)
-        userInteraction.set_prev_search_results([])
+        _user.remove_book(_selected_book)
 
         
     def ends_user_interaction(self) -> bool:

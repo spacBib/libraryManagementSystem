@@ -38,6 +38,16 @@ class LibraryUser:
     def email(self, value):
         self._email = value
 
+    @property
+    def books(self):
+        return self._books
+
+    def add_book(self, _book):
+        self._books.append(_book)
+
+    def remove_book(self, _book):
+        self._books.remove(_book)
+
     
     def print(self):
         print("Name: " + self.name)
