@@ -46,10 +46,10 @@ class InfoGetter(object):
             print(f"Error reserving book: {e}")
 
     # Loan a book
-    def loan_book(self, book_id: int, user_id: int) -> None:
+    def loan_book(self, book_id: int, user_id: int) -> bool:
         try:
             today = str(datetime.now().strftime('%Y-%m-%d'))
-            query = QueryBuilder.query_book_reservation(book_id, user_id, today)
+            query = QueryBuilder.query_book_loan(book_id, user_id, today)
 
             cursor = self._mysql_connection.cursor()
             cursor.execute(query)
@@ -58,6 +58,7 @@ class InfoGetter(object):
             cursor.close()
 
             print("Book loaned successfully.")
+            return True
         except Exception as e:
             print(f"Error loaning book: {e}")
 
