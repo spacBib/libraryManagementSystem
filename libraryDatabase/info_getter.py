@@ -18,12 +18,12 @@ class InfoGetter(object):
         cursor.execute(query)
         return cursor.fetchall()
     
-    # Takes an author and returns information from the database
-    def search_author(self, author: str) -> dict:
-        query = QueryBuilder().query_title(author)
-        cursor = self._mysql_connection.cursor(dictionary=True)
-        cursor.execute(query)
-        return cursor.fetchall()
+    # # Takes an author and returns information from the database
+    # def search_author(self, author: str) -> dict:
+    #     query = QueryBuilder().query_title(author)
+    #     cursor = self._mysql_connection.cursor(dictionary=True)
+    #     cursor.execute(query)
+    #     return cursor.fetchall()
 
     # Reserver a book
     def reserve_book(self, book: LibraryBook, user: LibraryUser) -> List[tuple]:
