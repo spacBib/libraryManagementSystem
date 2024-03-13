@@ -1,7 +1,8 @@
-from fakerData.fake_item_factory.fake_user_factory import FakeUserFactory
+from userInterface.user_action_factory import UserActionFactory
 
-factory = FakeUserFactory()
+factory = UserActionFactory()
 
-book = factory.create(0)
+_list = factory.create_list_of_all()
 
-book.print()
+for _action in _list:
+    print(_action.name)
