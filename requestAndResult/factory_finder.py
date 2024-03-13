@@ -1,18 +1,21 @@
-import search.search_factory, loan.loan_factory, returns.returns_factory, reservation.reservation_factory
+import requestAndResult.search.search_factory 
+import requestAndResult.loan.loan_factory 
+import requestAndResult.returns.returns_factory 
+import requestAndResult.reservation.reservation_factory
 from requestAndResult import factory_abc
-
+import requestAndResult
 class FactoryFinder():
     
     @staticmethod
-    def get_concrete_factory(self, factory_type: str) -> factory_abc.ResultRequestFactoryABC:
+    def get_concrete_factory(factory_type: str) -> factory_abc.ResultRequestFactoryABC:
         match factory_type :
             case "search":
-                return search.search_factory.SearchFactory()
+                return requestAndResult.search.search_factory.SearchFactory()
             case "loan":
-                return loan.loan_factory.LoanFactory()
+                return requestAndResult.loan.loan_factory.LoanFactory()
             case "reservation":
-                return reservation.reservation_factory.ReservationFactory()
+                return requestAndResult.reservation.reservation_factory.ReservationFactory()
             case "return":
-                return returns.returns_factory.ReturnsFactory()
+                return requestAndResult.returns.returns_factory.ReturnsFactory()
             case _:
                 print("no such result/request type") # throw exception?!

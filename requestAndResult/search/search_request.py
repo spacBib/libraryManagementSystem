@@ -1,10 +1,19 @@
-from request_abc import RequestABC
+from ..request_abc import RequestABC
 
 class SearchRequest(RequestABC):
     
     def __init__(self, search_str: str, user_id: int):
         self._search_str = search_str
         self._user_id = user_id
+        self._request_type = "search"
+
+    @property
+    def request_type(self):
+        return self._request_type
+
+    @request_type.setter
+    def request_type(self, value):
+        self._request_type = value
 
     @property
     def search_str(self):

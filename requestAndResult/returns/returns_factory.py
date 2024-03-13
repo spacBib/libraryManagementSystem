@@ -1,4 +1,4 @@
-from factory_abc import ResultRequestFactoryABC
+from ..factory_abc import ResultRequestFactoryABC
 
 class ReturnsFactory(ResultRequestFactoryABC):
     

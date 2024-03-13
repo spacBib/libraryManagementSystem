@@ -1,4 +1,4 @@
-from result_abc import ResultABC
+from ..result_abc import ResultABC
 from libraryBooks.library_book import LibraryBook
 
 class SearchResult(ResultABC):
@@ -34,6 +34,8 @@ class SearchResult(ResultABC):
 
     
     
-        
+    def print_result(self):
+        print("\n")
+        print(self.results)
 
             
