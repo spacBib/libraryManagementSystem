@@ -9,9 +9,6 @@ import random
 class FakeBookFactory(AbsFactory):
 
     def create(self, fakeId : int, is_available : bool) -> LibraryBook:
-        return self._create(fakeId, is_available)
-
-    def _create(self, fakeId : int, is_available : bool) -> LibraryBook:
         faker = FakerBookGenerator()
         factory = BookFactory()
 

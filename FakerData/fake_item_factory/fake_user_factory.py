@@ -8,10 +8,7 @@ import random
 
 class FakeUserFactory(AbsFactory):
 
-    def create(self, _fakeID):
-        return self._create(_fakeID)
-
-    def _create(self, fakeId : int) -> LibraryUser:
+    def create(self, fakeId : int) -> LibraryUser:
         faker = FakerUserGenerator()
         factory = UserFactory()
 
