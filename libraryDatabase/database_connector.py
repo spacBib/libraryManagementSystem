@@ -3,21 +3,14 @@ import mysql.connector
 
 
 class ConnectToDatabase(Singleton):
-    # define database variables
-    def __init__(self, host_name: str, user_name: str, password: str, port: int):
-        self.host_name = host_name
-        self.user_name = user_name
-        self.password = password
-        self.port = port
-
     def connect_to_server(self) -> mysql.connector:
         try:
             # Connect to the server
             my_database = mysql.connector.connect(
-                host=self.host_name,
-                user=self.user_name,
-                password=self.password,
-                port=self.port
+                host="localhost",
+                user="root",
+                password="Kom12345",
+                port=3306
             )
             return my_database
         except mysql.connector.Error as e:

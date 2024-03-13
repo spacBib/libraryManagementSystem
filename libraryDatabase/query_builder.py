@@ -1,4 +1,5 @@
-
+from libraryUsers.library_user import LibraryUser
+from libraryBooks.library_book import LibraryBook
 class QueryBuilder(object):
     
 
@@ -14,8 +15,25 @@ class QueryBuilder(object):
     def query_author(author: str) -> str:
         query = "SELECT ID, TITLE, AUTHOR, PUBLISHINGYEAR, ISBN, AVAILABILITY FROM BOOKS WHERE BOOKS.AUTHOR LIKE " + f"\"%{author}%\""
         return query
-    
-    
+
+    # Get specific book
+    @staticmethod
+    def query_book_reservation(book: LibraryBook, user: LibraryUser) -> str:
+        query = (
+            f"SELECT BOOKS.ID, BOOKS.TITLE, BOOKS.AUTHOR, BOOKS.ISBN, BOOKS.AVAILABILITY "
+            f"FROM BOOKS "
+            f"JOIN RESERVATIONS ON BOOKS.ID = RESERVATIONS.BOOK_ID "
+            f"JOIN USERS ON RESERVATIONS.USER_ID = USERS.ID "
+            f"WHERE BOOKS.ID = {book.id} AND USERS.ID = {user.id}"
+        )
+        print("Generated Query:", query)
+        return query
+
+        # Get user
+    @staticmethod
+    def query_user(user_name: str) -> str:
+        query = "SELECT ID, NAME, ADDRESS, EMAIL FROM USERS WHERE USUERS.NAME IS " + f"{user_name}"
+        return query
     
     # BOOKCOPIES: table of individual books with status
     # BOOKTITLES: table of titles with author, year etc. info
