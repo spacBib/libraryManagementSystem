@@ -1,7 +1,8 @@
-from fakerData.fake_item_factory.fake_user_factory import FakeUserFactory
+from userInterface.user_action_factory import UserActionFactory
+from userInterface.user_choice_selector import UserChoiceSelector
 
-factory = FakeUserFactory()
+from userInterface import UserInteraction
 
-book = factory.create(0)
+_user_interaction = UserInteraction("Dave")
 
-book.print()
+_user_interaction.start_user_interaction()
