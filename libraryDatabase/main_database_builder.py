@@ -36,13 +36,13 @@ if __name__ == "__main__":
                                             library_user_data, database_connection)
 
     column_name_book_reservation = ["id", "book_id", "user_id", "reservation_date"]
-    column_type_book_reservation = ["INT AUTO_INCREMENT PRIMARY KEY", "VARCHAR(255)", "VARCHAR(255)", "VARCHAR(255)"]
+    column_type_book_reservation = ["INT AUTO_INCREMENT PRIMARY KEY", "INT", "VARCHAR(255)", "VARCHAR(255)"]
 
     sql_database_table_creator.create_table("reservations", column_name_book_reservation,
                                             column_type_book_reservation, [], database_connection)
 
     column_name_book_loan = ["id", "book_id", "user_id", "loan_date"]
-    column_type_book_loan = ["INT AUTO_INCREMENT PRIMARY KEY", "VARCHAR(255)", "VARCHAR(255)",
+    column_type_book_loan = ["INT AUTO_INCREMENT PRIMARY KEY", "INT", "VARCHAR(255)",
                              "VARCHAR(255)"]
 
     sql_database_table_creator.create_table("book_loans", column_name_book_loan,
