@@ -95,3 +95,6 @@ class LibraryBook(object):
         print("Title: " + self.title)
         print("Year: " + str(self.year))
         print("ISBN: " + self.isbn)
+
+    def to_string(self) -> str:
+        return "\"" + self.title +  "\" by: " + self.author + ", published: " + self.year + " with ISBN: " + self.isbn

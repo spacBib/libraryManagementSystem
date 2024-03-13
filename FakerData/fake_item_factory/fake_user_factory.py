@@ -19,9 +19,9 @@ class FakeUserFactory(AbsFactory):
         
         user = factory.create(
             fakeId,
-            strList[0],
-            strList[1],
-            strList[2]
+            strListClean[0],
+            strListClean[1],
+            strListClean[2]
         )
         
         return user
