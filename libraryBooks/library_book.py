@@ -92,6 +92,6 @@ class LibraryBook(object):
     
     def print(self):
         print("Author: " + self.author)
-        print("Title: " + self.author)
+        print("Title: " + self.title)
         print("Year: " + str(self.year))
         print("ISBN: " + self.isbn)
