@@ -1,9 +1,6 @@
-from typing import List
-
+from datetime import datetime
 from mysql.connector import MySQLConnection
 from libraryDatabase.query_builder import QueryBuilder
-from libraryUsers.library_user import LibraryUser
-from libraryBooks.library_book import LibraryBook
 
 class InfoGetter(object):
     
@@ -25,23 +22,37 @@ class InfoGetter(object):
         cursor.execute(query)
         return cursor.fetchall()
 
-    # Reserver a book
-    def reserve_book(self, book: LibraryBook, user: LibraryUser) -> List[tuple]:
+    # Reserve a book
+    def reserve_book(self, book_id: int, user_id: int) -> None:
         try:
-            book_query = QueryBuilder.query_book_reservation(book, user)
-            cursor = self._mysql_connection.cursor(dictionary=True)
+            today = str(datetime.now().strftime('%Y-%m-%d'))
+            query = QueryBuilder.query_book_reservation(book_id, user_id, today)
 
-            print("Executing Query:", book_query)
-            cursor.execute(book_query)
+            cursor = self._mysql_connection.cursor()
+            cursor.execute(query)
 
-            result = cursor.fetchall()
-
+            self._mysql_connection.commit()
             cursor.close()
 
-            return result
+            print("Book reserved successfully.")
         except Exception as e:
             print(f"Error reserving book: {e}")
-            return None
+
+    # Loan a book
+    def loan_book(self, book_id: int, user_id: int) -> None:
+        try:
+            today = str(datetime.now().strftime('%Y-%m-%d'))
+            query = QueryBuilder.query_book_reservation(book_id, user_id, today)
+
+            cursor = self._mysql_connection.cursor()
+            cursor.execute(query)
+
+            self._mysql_connection.commit()
+            cursor.close()
+
+            print("Book loaned successfully.")
+        except Exception as e:
+            print(f"Error loaning book: {e}")
 
 
     
