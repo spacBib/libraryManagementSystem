@@ -6,11 +6,9 @@ from libraryBooks.library_book_factory import BookFactory
 
 class ReservationFactory(ResultRequestFactoryABC):
     
-    #@staticmethod
     def create_request(self, book_id: int, user_id:int) -> ReservationRequest:
         return ReservationRequest(book_id, user_id)
     
-    #@staticmethod
     def create_result(self, request: ReservationRequest, book_info: dict, success: bool) -> ReservationResult:
         book = self._make_book(book_info)
         user_id = request._user_id

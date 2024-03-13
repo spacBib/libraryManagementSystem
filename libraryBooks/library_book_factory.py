@@ -20,7 +20,7 @@ class BookFactory(AbsFactory):
             author = None
         
         try:
-            year = info.get("PUBLISHINGYEAR")
+            year = info.get("PUBLISHING_YEAR")
         except:
             year = None
         

@@ -15,7 +15,7 @@ class FactoryFinder():
                 return requestAndResult.loan.loan_factory.LoanFactory()
             case "reservation":
                 return requestAndResult.reservation.reservation_factory.ReservationFactory()
-            case "return":
+            case "returns":
                 return requestAndResult.returns.returns_factory.ReturnsFactory()
             case _:
                 print("no such result/request type") # throw exception?!

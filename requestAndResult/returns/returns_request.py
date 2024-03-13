@@ -1,11 +1,11 @@
 from ..request_abc import RequestABC
 
-class LoanRequest(RequestABC):
+class ReturnsRequest(RequestABC):
     
     def __init__(self, book_id: int, user_id: int):
         self._book_id = book_id
         self._user_id = user_id
-        self._request_type = "loan"
+        self._request_type = "returns"
 
     @property
     def book_id(self):

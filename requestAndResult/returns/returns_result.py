@@ -1,7 +1,7 @@
 from ..result_abc import ResultABC
 from libraryBooks.library_book import LibraryBook
 
-class LoanResult(ResultABC):
+class ReturnsResult(ResultABC):
     
     def __init__(self, book: LibraryBook, user_id: int, success: bool):
         self._book = book

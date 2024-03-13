@@ -5,11 +5,9 @@ from libraryBooks.library_book import LibraryBook
 from libraryBooks.library_book_factory import BookFactory
 class SearchFactory(ResultRequestFactoryABC):
     
-    #@staticmethod
     def create_request(self, search_str: str, user_id: int) -> SearchRequest:
         return SearchRequest(search_str, user_id)
-    
-    #@staticmethod
+
     def create_result(self, request: SearchRequest, search_results: list['dict']) -> SearchResult:
         books = self._make_books(search_results)
         sr = SearchResult(
@@ -18,7 +16,6 @@ class SearchFactory(ResultRequestFactoryABC):
             results = books
         )
         return sr
-    
     
     def _make_books(self, info_list: list['dict']) -> list['LibraryBook']:
         factory = BookFactory()
