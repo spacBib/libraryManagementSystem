@@ -15,7 +15,7 @@ class FakeBookFactory(AbsFactory):
         faker = FakerBookGenerator()
         factory = BookFactory()
 
-        strList = FakerBookGenerator.generate_item_data()
+        strList = faker.generate_item_data()
         strListClean = []
         for string in strList:
             strListClean.append(string.replace("\"",""))
