@@ -37,3 +37,9 @@ class LibraryUser:
     @email.setter
     def email(self, value):
         self._email = value
+
+    
+    def print(self):
+        print("Name: " + self.name)
+        print("Address: " + self.address)
+        print("Email: " + self.email)
