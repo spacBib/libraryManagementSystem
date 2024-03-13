@@ -11,11 +11,11 @@ class AbsUserAction(abc.ABC):
         pass
 
     @abc.abstractclassmethod
-    def is_usable(self) -> bool:
+    def is_usable(self, userInteraction) -> bool:
         pass
 
     @abc.abstractclassmethod
-    def select_action(self) -> None:
+    def select_action(self, userInteraction) -> None:
         pass
 
     @abc.abstractclassmethod
