@@ -54,11 +54,12 @@ class UserInteraction():
     def start_user_interaction(self):
         print("")
         print("Hello " + self.user.name)
-        print("Welcome to SPAC Library")
-
         while(True):
+            print("Welcome to SPAC Library")
             _end_loop = self._request_user_action()
             if (_end_loop):
                 break
+            print("")
+            print("")
 
 
