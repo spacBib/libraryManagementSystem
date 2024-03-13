@@ -1,18 +1,23 @@
 class QueryBuilder(object):
     
-
-    
-    
     # Get all books that contains title
     @staticmethod
     def query_title(title: str) -> str:
-        query = "SELECT ID, TITLE, AUTHOR, PUBLISHINGYEAR, ISBN, AVAILABILITY FROM BOOKS WHERE BOOKS.TITLE LIKE " + f"\"%{title}%\""
+        query = "SELECT ID, TITLE, AUTHOR, PUBLISHING_YEAR, ISBN, AVAILABILITY FROM BOOKS WHERE BOOKS.TITLE LIKE " + f"\"%{title}%\""
         return query
     
     @staticmethod
     def query_author(author: str) -> str:
-        query = "SELECT ID, TITLE, AUTHOR, PUBLISHINGYEAR, ISBN, AVAILABILITY FROM BOOKS WHERE BOOKS.AUTHOR LIKE " + f"\"%{author}%\""
+        query = "SELECT ID, TITLE, AUTHOR, PUBLISHING_YEAR, ISBN, AVAILABILITY FROM BOOKS WHERE BOOKS.AUTHOR LIKE " + f"\"%{author}%\""
         return query
+    
+    #
+    @staticmethod
+    def query_book_id(book_id: int) -> str:
+        query = f"SELECT ID, TITLE, AUTHOR, PUBLISHING_YEAR, ISBN, AVAILABILITY FROM BOOKS WHERE BOOKS.ID={book_id}"
+        print(query)
+        return query
+
 
     # Reserve book
     @staticmethod
