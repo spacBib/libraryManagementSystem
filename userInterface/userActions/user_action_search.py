@@ -1,6 +1,13 @@
 from .abs_user_action import AbsUserAction
 
-from fakerData.fake_item_factory import FakeBookFactory
+from libraryUsers.library_user import LibraryUser
+
+from libraryDatabase.database_connector import ConnectToDatabase
+from libraryDatabase.info_getter import InfoGetter
+from libraryBooks.library_book_factory import BookFactory
+import requestAndResult.request_handler
+import requestAndResult.search.search_factory
+
 
 class UserActionSearch(AbsUserAction):
     
@@ -16,21 +23,25 @@ class UserActionSearch(AbsUserAction):
         return True
 
     def select_action(self, userInteraction) -> None:
-        print("Seaching...")
-        print("Seaching...")
-        print("Seaching...")
-        print("")
-        print("Our search function seems to not be implimented.")
-        print("Perhaps these books will be of interest:")
-        print("")
-        _fake_book_factory = FakeBookFactory()
-        _fake_books = []
-        for i in range(5):
-            _fake_book = _fake_book_factory.create(i, True)
-            _fake_books.append(_fake_book)
-            print("\"" + _fake_book.title + "\" by " + _fake_book.author + " with following ISBN: " + _fake_book.isbn )
+        _input = input("Enter search string: ")
+        _user : LibraryUser = userInteraction.user
+
         
-        userInteraction.set_prev_search_results(_fake_books)
+        fact = requestAndResult.search.search_factory.SearchFactory()
+        req = fact.create_request(_input, _user.id)
+        
+        req_handler = requestAndResult.request_handler.RequestHandler()
+        
+        result = req_handler.handle_request(req)
+        
+        print("")
+        print("The following books matched your search:")
+        _books_found = []
+        for _book in result.results:
+            print("\"" + _book.title + "\" by " + _book.author + " with following ISBN: " + _book.isbn )
+            _books_found.append(_book)
+
+        userInteraction.set_prev_search_results(_books_found)
 
 
         
