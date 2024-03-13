@@ -36,5 +36,8 @@ class BookFactory(AbsFactory):
         book = self._create(id, author, title, year, isbn, available)
         return book
     
+    def create(self, id: int, author : str, title : str, year : int, isbn : str, available: bool) -> LibraryBook:
+        return self._create(id, author, title, year, isbn, available)
+
     def _create(self, id: int, author : str, title : str, year : int, isbn : str, available: bool) -> LibraryBook:
         return LibraryBook(id, author, title, year, isbn, available)
