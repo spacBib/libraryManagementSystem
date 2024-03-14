@@ -44,7 +44,7 @@ class UserInteraction():
             _action_name_list.append(_action.name)
 
         _choice_selector = UserChoiceSelector()
-        _choice_index = _choice_selector.get_user_choice(_action_name_list)
+        _choice_index = _choice_selector.get_user_choice_from_name_list(_action_name_list)
 
         _selected_action = _action_list[_choice_index]
         _selected_action.select_action(self)
