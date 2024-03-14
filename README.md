@@ -22,9 +22,12 @@ The request is completed by combing the functionality from the database and libr
 
 ### Dependencies
 
-* Visual Studio Code 1.87.2
-* The necessary libraries can be found in the requirements.txt file
 * Windows 10
+* Visual Studio Code 1.86
+* MySQL server 8.3.0
+* MySQL Workbench 8.0.36
+* Python 3.9
+* The necessary libraries can be found in the requirements.txt file
 
 ### Installing & Executing program
 
