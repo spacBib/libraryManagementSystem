@@ -33,15 +33,15 @@ The request is completed by combining the functionality from the database and li
 
 * Download the zip/clone from https://github.com/spacBib/libraryManagementSystem
 * Unzip at a desired location
-* In visual studio code go to File -> Open folder and choose the libraryManagementSystem folder
-* In the VS code libraryManagementSystem project terminal navigate (cd) to the requirements.txt file and run:
+* In visual studio code go to "File -> Open folder" and choose the libraryManagementSystem folder
+* In the VS code libraryManagementSystem project terminal navigate (cd) to the "requirements.txt" file and run:
 ```
 pip install -r requirements.txt
 ```
 * Afterward navigate back to your project root and go the script:
-libraryDatabase -> database_connector.py and edit it to fit your local MySQL server
-* Next go libraryDatabase -> main_database_builder.py and run the script there to set up the library database
-* Now go to main script in the project and run it.
+"libraryDatabase -> database_connector.py" and edit it to fit your local MySQL server
+* Next go "libraryDatabase -> main_database_builder.py" and run the script there to set up the library database
+* Now go to "main.py" script in the project and run it.
 
 ## Authors & Help
 
