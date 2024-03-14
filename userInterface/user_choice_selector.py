@@ -1,6 +1,23 @@
 class UserChoiceSelector():
     
-    def get_user_choice(self, choice_name_list : list[str]) -> None:
+    def get_user_choice_from_objects(self, objects : list, obj_to_str_func, *, null_choice = ""):
+        _name_list = []
+
+        if null_choice:
+            _name_list.append(null_choice)
+
+        for _object in objects:
+            _name = obj_to_str_func(_object)
+            _name_list.append(_name)
+        
+        _index = self.get_user_choice_from_name_list(_name_list)
+        _offset = 0 if null_choice else 1
+        return _index -_offset
+
+
+
+
+    def get_user_choice_from_name_list(self, choice_name_list : list[str]) -> None:
         _index = self._get_choice_index(choice_name_list)
         print("You have selected: (" + str(_index) + ") " + choice_name_list[_index])
         return _index

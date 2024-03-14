@@ -34,7 +34,7 @@ class UserActionLoan(AbsUserAction):
             _name_list.append(_book.to_string())
 
         _choice_selector = UserChoiceSelector()
-        _choice_index = _choice_selector.get_user_choice(_name_list) - 1
+        _choice_index = _choice_selector.get_user_choice_from_name_list(_name_list) - 1
         
         if _choice_index < 0:
             return
