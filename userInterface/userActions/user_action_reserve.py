@@ -47,8 +47,7 @@ class UserActionReserve(AbsUserAction):
         req_handler = RequestHandler()
         
         result : ReservationResult = req_handler.handle_request(req)
-
-        userInteraction.user.add_book(_selected_book)
+        
         userInteraction.set_prev_search_results([])
 
         
