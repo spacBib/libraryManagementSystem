@@ -6,7 +6,7 @@ class UserActionFakeSearch(AbsUserAction):
     
     @property
     def name(self) -> str:
-        return "Search"
+        return "FakeSearch"
     
     @property
     def priority(self) -> int:
