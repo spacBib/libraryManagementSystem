@@ -8,7 +8,7 @@ class UserActionFakeLoan(AbsUserAction):
     
     @property
     def name(self) -> str:
-        return "FakeLoan"
+        return "Fake Loan"
     
     @property
     def priority(self) -> int:
