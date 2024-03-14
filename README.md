@@ -1,12 +1,12 @@
 # Library Management System
 
-Det goal of this project is get familiar with design patterns, OOP, and SOLID principles 
+The goal of this project is get familiar with design patterns, OOP, and SOLID principles 
 by developing a management system for a library. 
-The library system should be capable of look up books, loan books, return books, and reserve books.
+The library system should be capable of looking up books, loan books, return books, and reserve books.
 
 ## Description
 
-The desired functionality have been archived, where the core parts are the database, library interaction, and user interface
+The desired functionality have been achieved, where the core parts are the database, library interaction, and user interface
 
 The database contains information about the contents of library such as 
 users registered, books available, books lent, books reserved, and books returned.
@@ -16,7 +16,7 @@ Library interaction is made possible by querying the database. The information f
 to fulfill a user request such as search, loan, reserve, or return.
 
 The User interface prompts a user with certain options the user can take and depending on what they choose different possibility opens op.
-The request is completed by combing the functionality from the database and library interaction and result is returned to the user.
+The request is completed by combining the functionality from the database and library interaction to return a result to the user.
 
 ## Getting Started
 
@@ -41,7 +41,7 @@ pip install -r requirements.txt
 * Afterward navigate back to your project root and go the script:
 libraryDatabase -> database_connector.py and edit it to fit your local MySQL server
 * Next go libraryDatabase -> main_database_builder.py and run the script there to set up the library database
-* Now go to ???? and run the user interface script
+* Now go to main script in the project and run it.
 
 ## Authors & Help
 
